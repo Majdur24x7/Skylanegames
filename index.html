@@ -5,75 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skylane Games - Play Free Online Games</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-gamepad"></i> Skylane <span>Games</span>
-        </div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search games..." onkeyup="searchGames()">
-            <i class="fa-solid fa-magnifying-glass"></i>
+    <!-- Header Block -->
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo">Skylane<span>Games</span></h1>
+            <input type="text" id="searchInput" onkeyup="searchGames()" placeholder="Search 100+ games...">
         </div>
     </header>
 
-    <!-- Top Banner Ad Space -->
-    <div class="ad-container top-ad-slot">
-        <div class="ad-placeholder">Top Leaderboard Ad Space (728x90)</div>
-    </div>
-
-    <!-- Category Bar -->
-    <nav class="categories">
-        <button class="cat-btn active" onclick="filterCategory('all')">All</button>
-        <button class="cat-btn" onclick="filterCategory('action')">Action</button>
-        <button class="cat-btn" onclick="filterCategory('racing')">Racing</button>
-        <button class="cat-btn" onclick="filterCategory('arcade')">Arcade</button>
-        <button class="cat-btn" onclick="filterCategory('puzzle')">Puzzle</button>
+    <!-- Category Strip (AtmeGame Style) -->
+    <nav class="category-strip">
+        <button class="cat-btn active" onclick="filterCategory('all')">🎮 All</button>
+        <button class="cat-btn" onclick="filterCategory('action')">⚔️ Action</button>
+        <button class="cat-btn" onclick="filterCategory('racing')">🏎️ Racing</button>
+        <button class="cat-btn" onclick="filterCategory('arcade')">🕹️ Arcade</button>
+        <button class="cat-btn" onclick="filterCategory('puzzle')">🧩 Puzzle</button>
+        <button class="cat-btn" onclick="filterCategory('sports')">⚽ Sports</button>
     </nav>
 
-    <!-- Dedicated Game Player Area (With Side Ads) -->
-    <section id="gamePlayerSection" class="game-player-section" style="display: none;">
-        <div class="game-player-header">
-            <h2 id="activeGameTitle">Playing Game</h2>
-            <button class="close-btn" onclick="closeGame()"><i class="fa-solid fa-xmark"></i> Close Game</button>
-        </div>
-        
-        <div class="game-layout">
-            <!-- Left Side Ad (Desktop) -->
-            <div class="ad-container sidebar-ad">
-                <div class="ad-placeholder">Left Ad (160x600)</div>
-            </div>
-
-            <!-- Main Game Frame -->
-            <div class="iframe-wrapper">
-                <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <!-- Right Side Ad (Desktop) -->
-            <div class="ad-container sidebar-ad">
-                <div class="ad-placeholder">Right Ad (160x600)</div>
-            </div>
-        </div>
-
-        <!-- Bottom Banner Ad Slot -->
-        <div class="ad-container bottom-ad-slot">
-            <div class="ad-placeholder">Bottom Ad Space (728x90)</div>
-        </div>
-    </section>
-    
-<main class="container">
-    <h2 class="section-title">Popular Games</h2>
-    <div class="games-grid" id="gamesGrid">
-        <!-- JS API se 100+ Games yahan automatic load honge -->
+    <!-- Top Sponsored Ad Slot -->
+    <div class="ad-banner">
+        <span class="ad-label">SPONSORED</span>
+        <div class="ad-slot"><!-- AdSense Code Yahan Aayega --></div>
     </div>
-</main>
 
-    <footer>
-        <p>&copy; 2026 Skylane Games. All rights reserved.</p>
-    </footer>
+    <!-- Game Player Section (Pop-up Player) -->
+    <div id="gamePlayerSection" class="player-container" style="display:none;">
+        <div class="player-header">
+            <h3 id="activeGameTitle">Game Name</h3>
+            <button onclick="closeGame()" class="close-btn">❌ Close Game</button>
+        </div>
+        <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-container">
+        <h2 class="section-title">🔥 Trending Games</h2>
+        <div class="games-grid" id="gamesGrid">
+            <!-- JavaScript se automatic 100+ games yahan aayenge -->
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
