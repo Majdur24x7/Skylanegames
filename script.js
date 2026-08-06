@@ -1,17 +1,22 @@
-// Open Game Player
+// Open Game Player Section Smoothly
 function playGame(title, gameUrl) {
     document.getElementById('activeGameTitle').innerText = title;
     document.getElementById('gameIframe').src = gameUrl;
-    document.getElementById('gamePlayerModal').style.display = 'flex';
+    
+    const playerSection = document.getElementById('gamePlayerSection');
+    playerSection.style.display = 'block';
+    
+    // Scroll smoothly to game player
+    playerSection.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Close Game Player
+// Close Game Player Section
 function closeGame() {
-    document.getElementById('gamePlayerModal').style.display = 'none';
+    document.getElementById('gamePlayerSection').style.display = 'none';
     document.getElementById('gameIframe').src = '';
 }
 
-// Category Filter
+// Filter Games by Category
 function filterCategory(category) {
     let cards = document.querySelectorAll('.game-card');
     let buttons = document.querySelectorAll('.cat-btn');
@@ -28,7 +33,7 @@ function filterCategory(category) {
     });
 }
 
-// Search Filter
+// Search Games
 function searchGames() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let cards = document.querySelectorAll('.game-card');
