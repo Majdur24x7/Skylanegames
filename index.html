@@ -3,83 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skylane Games - Play Free Online HTML5 Games</title>
-    <meta name="description" content="Play the best free online HTML5 games instantly, just like Atmegame. No downloads or login required.">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Style Link -->
+    <title>Skylane Games - Play Free Online Games</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-900 text-white font-sans min-h-screen flex flex-col justify-between select-none">
+<body>
 
     <!-- Header / Navbar -->
-    <header class="bg-gray-800 border-b border-gray-700 sticky top-0 z-40 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
-            <!-- Logo -->
-            <a href="index.html" class="text-2xl font-black text-yellow-400 tracking-wider">Skylane<span class="text-white">Games</span></a>
-            
-            <!-- Search Bar (Atmegame Style) -->
-            <div class="w-full md:w-96">
-                <input type="text" id="searchInput" placeholder="Search 100+ games..." onkeyup="searchGames()" class="w-full bg-gray-900 border border-gray-700 rounded-full px-4 py-2 text-sm text-white focus:outline-none focus:border-yellow-400 transition">
-            </div>
-
-            <div class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-3 py-1.5 rounded-full font-semibold hidden md:block">
-                ⚡ Instant Play
-            </div>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-gamepad"></i> Skylane <span>Games</span>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search games..." onkeyup="searchGames()">
+            <i class="fa-solid fa-magnifying-glass"></i>
         </div>
     </header>
 
-    <!-- AdSense Top Banner Space -->
-    <div class="max-w-7xl mx-auto px-4 my-4 w-full">
-        <div class="bg-gray-800 border border-dashed border-gray-600 rounded-lg h-20 flex items-center justify-center text-gray-400 text-xs">
-            [ AdSense Header Banner Space ]
+    <!-- Category Bar -->
+    <nav class="categories">
+        <button class="cat-btn active" onclick="filterCategory('all')">All</button>
+        <button class="cat-btn" onclick="filterCategory('action')">Action</button>
+        <button class="cat-btn" onclick="filterCategory('racing')">Racing</button>
+        <button class="cat-btn" onclick="filterCategory('arcade')">Arcade</button>
+        <button class="cat-btn" onclick="filterCategory('puzzle')">Puzzle</button>
+        <button class="cat-btn" onclick="filterCategory('sports')">Sports</button>
+    </nav>
+
+    <!-- Main Game Modal / Player (Hidden by default) -->
+    <div id="gamePlayerModal" class="game-modal">
+        <div class="game-modal-content">
+            <div class="modal-header">
+                <h2 id="activeGameTitle">Playing Game</h2>
+                <button class="close-btn" onclick="closeGame()">&times;</button>
+            </div>
+            <div class="iframe-container">
+                <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
-    <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 flex-grow w-full py-2">
-        
-        <!-- Category Filter Buttons (Atmegame Style) -->
-        <section class="mb-6 overflow-x-auto whitespace-nowrap py-2">
-            <div class="flex gap-2" id="categoryButtons">
-                <button onclick="filterCategory('All')" class="cat-btn bg-yellow-400 text-gray-950 font-bold px-4 py-2 rounded-full text-xs transition cursor-pointer">🔥 All Games</button>
-                <button onclick="filterCategory('Action')" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold px-4 py-2 rounded-full text-xs transition cursor-pointer">🏃‍♂️ Action</button>
-                <button onclick="filterCategory('Puzzle')" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold px-4 py-2 rounded-full text-xs transition cursor-pointer">🧩 Puzzle</button>
-                <button onclick="filterCategory('Arcade')" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold px-4 py-2 rounded-full text-xs transition cursor-pointer">🚀 Arcade</button>
-                <button onclick="filterCategory('Racing')" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold px-4 py-2 rounded-full text-xs transition cursor-pointer">🏎️ Racing</button>
+    <!-- Games Grid -->
+    <main class="container">
+        <h2 class="section-title">Popular Games</h2>
+        <div class="games-grid" id="gamesGrid">
+            
+            <!-- Game Card 1 -->
+            <div class="game-card" data-category="racing" onclick="playGame('Moto X3M', 'https://html5.gamedistribution.com/6c66657c96a7493282f6e520c159f8a3/')">
+                <img src="https://img.gamedistribution.com/6c66657c96a7493282f6e520c159f8a3-512x512.jpeg" alt="Moto X3M">
+                <div class="game-info">
+                    <h3>Moto X3M</h3>
+                    <span class="badge">Racing</span>
+                </div>
             </div>
-        </section>
 
-        <!-- Games Grid Section -->
-        <section class="mb-12">
-            <h2 id="sectionTitle" class="text-xl font-bold mb-6 border-l-4 border-yellow-400 pl-3">Popular Games</h2>
-            <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-                <!-- Games will load dynamically here -->
+            <!-- Game Card 2 -->
+            <div class="game-card" data-category="action" onclick="playGame('Subway Surfers', 'https://html5.gamedistribution.com/2b347214e9f34f7fb39110757a2c85b1/')">
+                <img src="https://img.gamedistribution.com/2b347214e9f34f7fb39110757a2c85b1-512x512.jpeg" alt="Subway Surfers">
+                <div class="game-info">
+                    <h3>Subway Surfers</h3>
+                    <span class="badge">Action</span>
+                </div>
             </div>
-        </section>
+
+            <!-- Game Card 3 -->
+            <div class="game-card" data-category="arcade" onclick="playGame('Pac-Xon', 'https://html5.gamedistribution.com/492211d13f384a27a810b47e4526dfc9/')">
+                <img src="https://img.gamedistribution.com/492211d13f384a27a810b47e4526dfc9-512x512.jpeg" alt="Pac-Xon">
+                <div class="game-info">
+                    <h3>Pac-Xon</h3>
+                    <span class="badge">Arcade</span>
+                </div>
+            </div>
+
+            <!-- Game Card 4 -->
+            <div class="game-card" data-category="puzzle" onclick="playGame('2048', 'https://html5.gamedistribution.com/8bf0f666fef84c72a8c3d100d04bfbfb/')">
+                <img src="https://img.gamedistribution.com/8bf0f666fef84c72a8c3d100d04bfbfb-512x512.jpeg" alt="2048">
+                <div class="game-info">
+                    <h3>2048</h3>
+                    <span class="badge">Puzzle</span>
+                </div>
+            </div>
+
+            <!-- Game Card 5 -->
+            <div class="game-card" data-category="sports" onclick="playGame('Penalty Kick Online', 'https://html5.gamedistribution.com/0f6b4e07a3c3411a8fb1ff62a4d048fa/')">
+                <img src="https://img.gamedistribution.com/0f6b4e07a3c3411a8fb1ff62a4d048fa-512x512.jpeg" alt="Penalty Kick Online">
+                <div class="game-info">
+                    <h3>Penalty Kick</h3>
+                    <span class="badge">Sports</span>
+                </div>
+            </div>
+
+            <!-- Game Card 6 -->
+            <div class="game-card" data-category="action" onclick="playGame('Vex 7', 'https://html5.gamedistribution.com/f9e011667b934b1da94c39175f0a0d65/')">
+                <img src="https://img.gamedistribution.com/f9e011667b934b1da94c39175f0a0d65-512x512.jpeg" alt="Vex 7">
+                <div class="game-info">
+                    <h3>Vex 7</h3>
+                    <span class="badge">Action</span>
+                </div>
+            </div>
+
+        </div>
     </main>
 
-    <!-- Full Screen Game Modal Player -->
-    <div id="gameModal" class="fixed inset-0 bg-black/95 z-50 hidden flex flex-col">
-        <div class="bg-gray-800 px-4 py-3 flex justify-between items-center border-b border-gray-700">
-            <h2 id="modalGameTitle" class="font-bold text-base text-yellow-400">Loading...</h2>
-            <button onclick="closeGame()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-sm cursor-pointer transition">
-                ✕ Close / Back
-            </button>
-        </div>
-        <div class="flex-grow flex items-center justify-center p-2 relative">
-            <div id="gameContainer" class="w-full h-full max-w-5xl max-h-[85vh] bg-gray-950 rounded-xl overflow-hidden border border-gray-800 flex items-center justify-center text-center">
-                <!-- Game Iframe loads here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Simple Footer -->
-    <footer class="bg-gray-800 border-t border-gray-700 py-6 text-center text-xs text-gray-400">
+    <!-- Footer -->
+    <footer>
         <p>&copy; 2026 Skylane Games. All rights reserved.</p>
     </footer>
 
-    <!-- Custom JavaScript Link -->
     <script src="script.js"></script>
 </body>
 </html>
