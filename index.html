@@ -4,51 +4,345 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skylane Games - Play Free Online Games</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS Style Section -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Header Layout */
+        .header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 12px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #e94560;
+        }
+
+        #searchInput {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            outline: none;
+            width: 220px;
+            font-size: 14px;
+        }
+
+        /* Category Strip (AtmeGame Style) */
+        .category-strip {
+            display: flex;
+            gap: 10px;
+            background: #0f3460;
+            padding: 12px 10px;
+            overflow-x: auto;
+            justify-content: center;
+        }
+
+        .cat-btn {
+            background: #16213e;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: #e94560;
+        }
+
+        /* Sponsored Ad Banner Slot */
+        .ad-banner {
+            max-width: 1200px;
+            margin: 15px auto;
+            background: #ffffff;
+            border: 1px dashed #cccccc;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .ad-label {
+            font-size: 10px;
+            color: #888;
+            display: block;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Game Player Popup Window */
+        .player-container {
+            max-width: 1000px;
+            margin: 15px auto;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 5px 10px 10px 10px;
+        }
+
+        .close-btn {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #gameIframe {
+            width: 100%;
+            height: 550px;
+            border: none;
+            border-radius: 6px;
+            background: #111;
+        }
+
+        /* Main Container & Games Grid */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        /* Responsive Game Card */
+        .game-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-info {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .game-info h3 {
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: #222;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .badge {
+            background: #eef2f5;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            color: #666;
+            text-transform: capitalize;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+            #gameIframe {
+                height: 400px;
+            }
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header Block -->
+    <!-- Top Navigation Header -->
     <header class="header">
         <div class="nav-container">
             <h1 class="logo">Skylane<span>Games</span></h1>
-            <input type="text" id="searchInput" onkeyup="searchGames()" placeholder="Search 100+ games...">
+            <input type="text" id="searchInput" onkeyup="searchGames()" placeholder="Search games...">
         </div>
     </header>
 
-    <!-- Category Strip (AtmeGame Style) -->
+    <!-- Categories Strip -->
     <nav class="category-strip">
-        <button class="cat-btn active" onclick="filterCategory('all')">🎮 All</button>
-        <button class="cat-btn" onclick="filterCategory('action')">⚔️ Action</button>
-        <button class="cat-btn" onclick="filterCategory('racing')">🏎️ Racing</button>
-        <button class="cat-btn" onclick="filterCategory('arcade')">🕹️ Arcade</button>
-        <button class="cat-btn" onclick="filterCategory('puzzle')">🧩 Puzzle</button>
-        <button class="cat-btn" onclick="filterCategory('sports')">⚽ Sports</button>
+        <button class="cat-btn active" onclick="filterCategory(event, 'all')">🎮 All</button>
+        <button class="cat-btn" onclick="filterCategory(event, 'action')">⚔️ Action</button>
+        <button class="cat-btn" onclick="filterCategory(event, 'racing')">🏎️ Racing</button>
+        <button class="cat-btn" onclick="filterCategory(event, 'arcade')">🕹️ Arcade</button>
+        <button class="cat-btn" onclick="filterCategory(event, 'puzzle')">🧩 Puzzle</button>
+        <button class="cat-btn" onclick="filterCategory(event, 'sports')">⚽ Sports</button>
     </nav>
 
-    <!-- Top Sponsored Ad Slot -->
+    <!-- Sponsored Ad Banner Section -->
     <div class="ad-banner">
         <span class="ad-label">SPONSORED</span>
-        <div class="ad-slot"><!-- AdSense Code Yahan Aayega --></div>
+        <div class="ad-slot">
+            <!-- Aapka Google AdSense code yahan aayega -->
+        </div>
     </div>
 
-    <!-- Game Player Section (Pop-up Player) -->
+    <!-- Embedded Game Player Section -->
     <div id="gamePlayerSection" class="player-container" style="display:none;">
         <div class="player-header">
             <h3 id="activeGameTitle">Game Name</h3>
             <button onclick="closeGame()" class="close-btn">❌ Close Game</button>
         </div>
-        <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+        <iframe id="gameIframe" src="" allowfullscreen></iframe>
     </div>
 
-    <!-- Main Content Area -->
+    <!-- Main Games Showcase Grid -->
     <main class="main-container">
         <h2 class="section-title">🔥 Trending Games</h2>
         <div class="games-grid" id="gamesGrid">
-            <!-- JavaScript se automatic 100+ games yahan aayenge -->
+            <p style="grid-column: 1/-1; text-align: center; padding: 20px;">Loading 100+ Games...</p>
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <!-- JavaScript Logic Section -->
+    <script>
+        // Free Public Games API (100 Games)
+        const API_URL = 'https://catalog.gamepix.com/games?category=all&pagination=96';
+
+        // Page load hote hi games automatically fetch honge
+        document.addEventListener('DOMContentLoaded', fetchAutoGames);
+
+        async function fetchAutoGames() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            try {
+                const response = await fetch(API_URL);
+                const result = await response.json();
+                
+                if (result && result.data) {
+                    gamesGrid.innerHTML = ''; // Loading text clear karne ke liye
+                    
+                    result.data.forEach(game => {
+                        const card = document.createElement('div');
+                        card.className = 'game-card';
+                        card.setAttribute('data-category', game.category ? game.category.toLowerCase() : 'arcade');
+                        
+                        // Game Click Listener
+                        card.onclick = () => playGame(game.title, game.url);
+                        
+                        card.innerHTML = `
+                            <img src="${game.thumbnailUrl || game.banner_image}" alt="${game.title}" loading="lazy">
+                            <div class="game-info">
+                                <h3>${game.title}</h3>
+                                <span class="badge">${game.category || 'Arcade'}</span>
+                            </div>
+                        `;
+                        gamesGrid.appendChild(card);
+                    });
+                }
+            } catch (err) {
+                console.error("Games fetch error:", err);
+                gamesGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Unable to load games. Please refresh.</p>';
+            }
+        }
+
+        // Play Game Window
+        function playGame(title, gameUrl) {
+            document.getElementById('activeGameTitle').innerText = title;
+            document.getElementById('gameIframe').src = gameUrl;
+            const playerSection = document.getElementById('gamePlayerSection');
+            playerSection.style.display = 'block';
+            playerSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close Game Window
+        function closeGame() {
+            document.getElementById('gamePlayerSection').style.display = 'none';
+            document.getElementById('gameIframe').src = '';
+        }
+
+        // Category Filter Function
+        function filterCategory(evt, cat) {
+            let cards = document.querySelectorAll('.game-card');
+            let buttons = document.querySelectorAll('.cat-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(evt && evt.target) evt.target.classList.add('active');
+
+            cards.forEach(card => {
+                let cardCat = card.getAttribute('data-category');
+                if (cat === 'all' || cardCat.includes(cat)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Games Function
+        function searchGames() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.game-card');
+            cards.forEach(card => {
+                let title = card.querySelector('h3').innerText.toLowerCase();
+                card.style.display = title.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
 </body>
 </html>
