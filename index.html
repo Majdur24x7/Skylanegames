@@ -20,6 +20,11 @@
         </div>
     </header>
 
+    <!-- Top Banner Ad Space -->
+    <div class="ad-container top-ad-slot">
+        <div class="ad-placeholder">Top Leaderboard Ad Space (728x90)</div>
+    </div>
+
     <!-- Category Bar -->
     <nav class="categories">
         <button class="cat-btn active" onclick="filterCategory('all')">All</button>
@@ -27,21 +32,37 @@
         <button class="cat-btn" onclick="filterCategory('racing')">Racing</button>
         <button class="cat-btn" onclick="filterCategory('arcade')">Arcade</button>
         <button class="cat-btn" onclick="filterCategory('puzzle')">Puzzle</button>
-        <button class="cat-btn" onclick="filterCategory('sports')">Sports</button>
     </nav>
 
-    <!-- Main Game Modal / Player (Hidden by default) -->
-    <div id="gamePlayerModal" class="game-modal">
-        <div class="game-modal-content">
-            <div class="modal-header">
-                <h2 id="activeGameTitle">Playing Game</h2>
-                <button class="close-btn" onclick="closeGame()">&times;</button>
+    <!-- Dedicated Game Player Area (With Side Ads) -->
+    <section id="gamePlayerSection" class="game-player-section" style="display: none;">
+        <div class="game-player-header">
+            <h2 id="activeGameTitle">Playing Game</h2>
+            <button class="close-btn" onclick="closeGame()"><i class="fa-solid fa-xmark"></i> Close Game</button>
+        </div>
+        
+        <div class="game-layout">
+            <!-- Left Side Ad (Desktop) -->
+            <div class="ad-container sidebar-ad">
+                <div class="ad-placeholder">Left Ad (160x600)</div>
             </div>
-            <div class="iframe-container">
+
+            <!-- Main Game Frame -->
+            <div class="iframe-wrapper">
                 <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
             </div>
+
+            <!-- Right Side Ad (Desktop) -->
+            <div class="ad-container sidebar-ad">
+                <div class="ad-placeholder">Right Ad (160x600)</div>
+            </div>
         </div>
-    </div>
+
+        <!-- Bottom Banner Ad Slot -->
+        <div class="ad-container bottom-ad-slot">
+            <div class="ad-placeholder">Bottom Ad Space (728x90)</div>
+        </div>
+    </section>
 
     <!-- Games Grid -->
     <main class="container">
@@ -84,28 +105,9 @@
                 </div>
             </div>
 
-            <!-- Game Card 5 -->
-            <div class="game-card" data-category="sports" onclick="playGame('Penalty Kick Online', 'https://html5.gamedistribution.com/0f6b4e07a3c3411a8fb1ff62a4d048fa/')">
-                <img src="https://img.gamedistribution.com/0f6b4e07a3c3411a8fb1ff62a4d048fa-512x512.jpeg" alt="Penalty Kick Online">
-                <div class="game-info">
-                    <h3>Penalty Kick</h3>
-                    <span class="badge">Sports</span>
-                </div>
-            </div>
-
-            <!-- Game Card 6 -->
-            <div class="game-card" data-category="action" onclick="playGame('Vex 7', 'https://html5.gamedistribution.com/f9e011667b934b1da94c39175f0a0d65/')">
-                <img src="https://img.gamedistribution.com/f9e011667b934b1da94c39175f0a0d65-512x512.jpeg" alt="Vex 7">
-                <div class="game-info">
-                    <h3>Vex 7</h3>
-                    <span class="badge">Action</span>
-                </div>
-            </div>
-
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Skylane Games. All rights reserved.</p>
     </footer>
