@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Skylane Games - Play Free Online HTML5 Games Instantly</title>
-    <meta name="description" content="Play the best free online HTML5 games instantly on Skylane Games. No downloads, no login required. Enjoy action, puzzle, arcade, and shooter games on mobile and PC.">
-    <meta name="keywords" content="free online games, HTML5 games, play games without download, browser games, Skylane Games, arcade games, puzzle games">
-    <meta name="author" content="Skylane Games">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.skylanegames.com/">
-
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Skylane Games - Play Free Online HTML5 Games Instantly">
-    <meta property="og:description" content="No downloads, no logins. Jump straight into action-packed browser games on mobile and PC.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.skylanegames.com/">
-
-    <!-- Tailwind CSS for Modern Responsive Design -->
+    <title>Skylane Games - Play Free Online HTML5 Games</title>
+    <!-- Tailwind CSS for Modern Design -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Style Link -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-900 text-white font-sans min-h-screen flex flex-col justify-between select-none">
 
     <!-- Header / Navbar -->
     <header class="bg-gray-800 border-b border-gray-700 sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black text-yellow-400 tracking-wider">Skylane<span class="text-white">Games</span></a>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#" class="hover:text-yellow-400 transition">Home</a>
-                <a href="#games" class="hover:text-yellow-400 transition">Trending Games</a>
-                <a href="#categories" class="hover:text-yellow-400 transition">Categories</a>
-            </nav>
+            <a href="index.html" class="text-2xl font-black text-yellow-400 tracking-wider">Skylane<span class="text-white">Games</span></a>
             <div class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-3 py-1.5 rounded-full font-semibold">
                 ⚡ No Login Required
             </div>
@@ -41,108 +23,49 @@
 
     <!-- AdSense Top Banner Space -->
     <div class="max-w-7xl mx-auto px-4 my-4 w-full">
-        <div class="bg-gray-800 border border-dashed border-gray-600 rounded-lg h-16 md:h-20 flex items-center justify-center text-gray-400 text-xs">
+        <div class="bg-gray-800 border border-dashed border-gray-600 rounded-lg h-20 flex items-center justify-center text-gray-400 text-xs">
             [ AdSense Header Banner Space ]
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <main class="max-w-7xl mx-auto px-4 flex-grow w-full">
-        <section class="bg-gradient-to-r from-purple-900 via-indigo-900 to-gray-900 rounded-2xl p-6 md:p-12 mb-8 text-center shadow-xl border border-gray-800">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Play Free HTML5 Games on Skylane Games!</h1>
-            <p class="text-gray-300 max-w-xl mx-auto mb-6 text-sm md:text-base">No downloads, no passwords, no hassle. Jump straight into the action instantly on your mobile phone, tablet, or PC.</p>
-            <a href="#games" class="bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-full hover:bg-yellow-300 transition shadow-lg inline-block">Explore All Games</a>
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 flex-grow w-full py-4">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-purple-900 via-indigo-900 to-gray-900 rounded-2xl p-6 md:p-10 mb-8 text-center shadow-xl border border-gray-800">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-3">Play Free HTML5 Games Instantly</h1>
+            <p class="text-gray-300 text-sm md:text-base">No downloads or logins. Enjoy action, puzzle, and arcade games directly in your browser.</p>
         </section>
 
-        <!-- Games Grid Section -->
-        <section id="games" class="mb-12">
-            <h2 class="text-xl font-bold mb-6 border-l-4 border-yellow-400 pl-3">Popular Arcade & Action Games</h2>
-            
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-                <!-- Game 1 -->
-                <div onclick="openGame('Cyber Runner', 'https://www.skylanegames.com/game/cyber-runner')" class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-400 transition shadow-md group cursor-pointer">
-                    <div class="h-36 bg-gradient-to-br from-blue-900 to-gray-800 flex items-center justify-center text-4xl group-hover:scale-105 transition duration-300">
-                        🏃‍♂️
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-sm truncate">Cyber Runner</h3>
-                        <p class="text-xs text-gray-400 mb-2">Action / Run</p>
-                        <span class="inline-block w-full bg-yellow-400 text-gray-900 text-center font-bold py-1.5 rounded text-xs">Play Free</span>
-                    </div>
-                </div>
-
-                <!-- Game 2 -->
-                <div onclick="openGame('Puzzle Master', 'https://www.skylanegames.com/game/puzzle-master')" class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-400 transition shadow-md group cursor-pointer">
-                    <div class="h-36 bg-gradient-to-br from-indigo-900 to-gray-800 flex items-center justify-center text-4xl group-hover:scale-105 transition duration-300">
-                        🧩
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-sm truncate">Puzzle Master</h3>
-                        <p class="text-xs text-gray-400 mb-2">Brain / Logic</p>
-                        <span class="inline-block w-full bg-yellow-400 text-gray-900 text-center font-bold py-1.5 rounded text-xs">Play Free</span>
-                    </div>
-                </div>
-
-                <!-- Game 3 -->
-                <div onclick="openGame('Space Shooter', 'https://www.skylanegames.com/game/space-shooter')" class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-400 transition shadow-md group cursor-pointer">
-                    <div class="h-36 bg-gradient-to-br from-purple-900 to-gray-800 flex items-center justify-center text-4xl group-hover:scale-105 transition duration-300">
-                        🚀
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-sm truncate">Space Shooter</h3>
-                        <p class="text-xs text-gray-400 mb-2">Shooter / Arcade</p>
-                        <span class="inline-block w-full bg-yellow-400 text-gray-900 text-center font-bold py-1.5 rounded text-xs">Play Free</span>
-                    </div>
-                </div>
-
-                <!-- Game 4 -->
-                <div onclick="openGame('Neon Dash', 'https://www.skylanegames.com/game/neon-dash')" class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-400 transition shadow-md group cursor-pointer">
-                    <div class="h-36 bg-gradient-to-br from-pink-900 to-gray-800 flex items-center justify-center text-4xl group-hover:scale-105 transition duration-300">
-                        ⚡
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-sm truncate">Neon Dash</h3>
-                        <p class="text-xs text-gray-400 mb-2">Fast / Reflex</p>
-                        <span class="inline-block w-full bg-yellow-400 text-gray-900 text-center font-bold py-1.5 rounded text-xs">Play Free</span>
-                    </div>
-                </div>
+        <!-- Games Grid Section (Yeh JavaScript se automatic bharega) -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold mb-6 border-l-4 border-yellow-400 pl-3">All Games Collection</h2>
+            <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Games will load dynamically here -->
             </div>
-        </section>
-
-        <!-- SEO Content Section (Text for Google Crawlers) -->
-        <section class="bg-gray-800/50 border border-gray-800 rounded-xl p-6 mb-12 text-sm text-gray-300">
-            <h2 class="text-lg font-bold text-white mb-2">About Skylane Games</h2>
-            <p class="leading-relaxed">
-                Welcome to <strong>Skylane Games</strong>, your ultimate destination for free online browser games. Whether you love high-speed racing, brain-teasing puzzles, or action-packed arcade shooters, we have something for everyone. All games run directly inside your web browser without requiring any downloads, installations, or user registration. Play on your mobile, tablet, or desktop anytime, anywhere!
-            </p>
         </section>
     </main>
 
-    <!-- FULL SCREEN GAME MODAL -->
+    <!-- Full Screen Game Modal Player -->
     <div id="gameModal" class="fixed inset-0 bg-black/95 z-50 hidden flex flex-col">
         <div class="bg-gray-800 px-4 py-3 flex justify-between items-center border-b border-gray-700">
-            <h2 id="modalGameTitle" class="font-bold text-base md:text-lg text-yellow-400">Loading Game...</h2>
-            <button onclick="closeGame()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-sm flex items-center gap-1 transition shadow">
+            <h2 id="modalGameTitle" class="font-bold text-base text-yellow-400">Loading...</h2>
+            <button onclick="closeGame()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-sm cursor-pointer transition">
                 ✕ Close / Back
             </button>
         </div>
-
-        <div class="flex-grow flex items-center justify-center relative p-2 md:p-4">
+        <div class="flex-grow flex items-center justify-center p-2 relative">
             <div id="gameContainer" class="w-full h-full max-w-5xl max-h-[85vh] bg-gray-950 rounded-xl overflow-hidden border border-gray-800 flex items-center justify-center text-center">
-                <div class="p-6">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-4"></div>
-                    <p class="text-gray-400 text-sm">Loading game assets seamlessly...</p>
-                </div>
+                <!-- Game Iframe loads here -->
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Simple Footer -->
     <footer class="bg-gray-800 border-t border-gray-700 py-6 text-center text-xs text-gray-400">
-        <p>&copy; 2026 Skylane Games. All rights reserved. Play Free HTML5 Games. No Account Needed.</p>
+        <p>&copy; 2026 Skylane Games. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript Link -->
+    <!-- Custom JavaScript Link -->
     <script src="script.js"></script>
 </body>
 </html>
